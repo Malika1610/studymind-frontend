@@ -1,0 +1,40 @@
+# Python virtual environment
+backend/.venv/
+
+# Environment variables and API keys
+backend/.env
+.env
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# IDE settings
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Node / frontend dependencies if added later
+node_modules/
+
+# Build / distribution folders
+dist/
+build/
+
+# Local uploads / generated files
+uploads/

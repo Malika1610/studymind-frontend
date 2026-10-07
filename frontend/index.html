@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StudyMind | Nexus</title>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">S</div>
+            <div>
+                <h2>StudyMind</h2>
+                <span>NEXUS 2026</span>
+            </div>
+        </div>
+
+        <nav class="navigation">
+
+            <button class="nav-item active" data-page="dashboard">
+                <span>⌂</span>
+                Dashboard
+            </button>
+
+            <button class="nav-item" data-page="documents">
+                <span>▣</span>
+                Documents
+            </button>
+
+            <button class="nav-item" data-page="chat">
+                <span>◈</span>
+                AI Assistant
+            </button>
+
+            <button class="nav-item" data-page="quiz">
+                <span>?</span>
+                Quiz
+            </button>
+
+            <button class="nav-item" data-page="flashcards">
+                <span>▤</span>
+                Flashcards
+            </button>
+
+            <button class="nav-item" data-page="analytics">
+                <span>◒</span>
+                Insights
+            </button>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <button class="theme-toggle" id="themeToggle">
+                <span>◐</span>
+                <span id="themeText">Dark Mode</span>
+            </button>
+
+            <div class="user-card">
+                <div class="avatar">M</div>
+                <div>
+                    <strong>Student</strong>
+                    <small>StudyMind User</small>
+                </div>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="main-content">
+
+        <!-- ================= DASHBOARD ================= -->
+        <section class="page active" id="dashboard">
+
+            <div class="page-header">
+                <div>
+                    <p class="eyebrow">WELCOME BACK</p>
+                    <h1>Your Learning Dashboard</h1>
+                    <p class="subtitle">
+                        Learn, ask, practice, analyze and revise — all from your documents.
+                    </p>
+                </div>
+
+                <button class="primary-button" data-page-target="documents">
+                    + Add Documents
+                </button>
+            </div>
+
+
+            <!-- Stats -->
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <div class="stat-icon">▣</div>
+                    <div>
+                        <span>Documents</span>
+                        <strong id="documentCount">3</strong>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">◈</div>
+                    <div>
+                        <span>Questions Asked</span>
+                        <strong>24</strong>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">✓</div>
+                    <div>
+                        <span>Quiz Accuracy</span>
+                        <strong>82%</strong>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">◒</div>
+                    <div>
+                        <span>Study Streak</span>
+                        <strong>7 days</strong>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Main Dashboard Grid -->
+            <div class="dashboard-grid">
+
+                <!-- Ask AI -->
+                <div class="card ask-card">
+
+                    <div class="card-header">
+                        <div>
+                            <h2>Ask Your Knowledge Base</h2>
+                            <p>Ask questions about your uploaded documents.</p>
+                        </div>
+
+                        <span class="status-badge">
+                            ● AI Ready
+                        </span>
+                    </div>
+
+                    <div class="quick-prompts">
+
+                        <button class="prompt-button">
+                            Summarize my notes
+                        </button>
+
+                        <button class="prompt-button">
+                            Explain this simply
+                        </button>
+
+                        <button class="prompt-button">
+                            Find important topics
+                        </button>
+
+                    </div>
+
+                    <div class="chat-input-container">
+
+                        <input
+                            type="text"
+                            id="dashboardQuestion"
+                            placeholder="Ask something about your documents..."
+                        >
+
+                        <button id="dashboardAskButton">
+                            Ask
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Recent Documents -->
+                <div class="card">
+
+                    <div class="card-header">
+                        <div>
+                            <h2>Recent Documents</h2>
+                            <p>Your latest uploaded study material.</p>
+                        </div>
+
+                        <button class="text-button" data-page-target="documents">
+                            View All
+                        </button>
+                    </div>
+
+                    <div class="document-list" id="recentDocuments">
+
+                        <div class="document-row">
+                            <div class="file-icon pdf">PDF</div>
+
+                            <div class="document-info">
+                                <strong>Operating Systems Notes</strong>
+                                <span>12 pages • 2.4 MB</span>
+                            </div>
+
+                            <span class="document-status">
+                                Indexed
+                            </span>
+                        </div>
+
+
+                        <div class="document-row">
+                            <div class="file-icon txt">TXT</div>
+
+                            <div class="document-info">
+                                <strong>DBMS Revision</strong>
+                                <span>8 pages • 1.2 MB</span>
+                            </div>
+
+                            <span class="document-status">
+                                Indexed
+                            </span>
+                        </div>
+
+
+                        <div class="document-row">
+                            <div class="file-icon pdf">PDF</div>
+
+                            <div class="document-info">
+                                <strong>Computer Networks</strong>
+                                <span>18 pages • 3.1 MB</span>
+                            </div>
+
+                            <span class="document-status">
+                                Indexed
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Learning Flow -->
+            <div class="card learning-flow">
+
+                <div class="card-header">
+                    <div>
+                        <h2>StudyMind Learning Flow</h2>
+                        <p>A complete workflow for document-based learning.</p>
+                    </div>
+                </div>
+
+                <div class="flow">
+
+                    <div class="flow-step">
+                        <div class="flow-number">1</div>
+                        <strong>Learn</strong>
+                        <span>Upload notes</span>
+                    </div>
+
+                    <div class="flow-line"></div>
+
+                    <div class="flow-step">
+                        <div class="flow-number">2</div>
+                        <strong>Ask</strong>
+                        <span>Question AI</span>
+                    </div>
+
+                    <div class="flow-line"></div>
+
+                    <div class="flow-step">
+                        <div class="flow-number">3</div>
+                        <strong>Practice</strong>
+                        <span>Take quizzes</span>
+                    </div>
+
+                    <div class="flow-line"></div>
+
+                    <div class="flow-step">
+                        <div class="flow-number">4</div>
+                        <strong>Analyze</strong>
+                        <span>Find weak areas</span>
+                    </div>
+
+                    <div class="flow-line"></div>
+
+                    <div class="flow-step">
+                        <div class="flow-number">5</div>
+                        <strong>Revise</strong>
+                        <span>Improve knowledge</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= DOCUMENTS ================= -->
+        <section class="page" id="documents">
+
+            <div class="page-header">
+
+                <div>
+                    <p class="eyebrow">KNOWLEDGE BASE</p>
+                    <h1>Your Documents</h1>
+                    <p class="subtitle">
+                        Upload PDFs or TXT files to build your personal knowledge base.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- Upload -->
+            <div class="card upload-card">
+
+                <div
+                    class="upload-zone"
+                    id="uploadZone"
+                >
+
+                    <div class="upload-icon">↑</div>
+
+                    <h2>Upload your documents</h2>
+
+                    <p>
+                        Drag and drop files here or click to browse.
+                    </p>
+
+                    <span>
+                        Supported formats: PDF, TXT
+                    </span>
+
+                    <input
+                        type="file"
+                        id="fileInput"
+                        accept=".pdf,.txt"
+                        multiple
+                        hidden
+                    >
+
+                    <button
+                        class="primary-button"
+                        id="chooseFileButton"
+                    >
+                        Choose Files
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Document Search -->
+            <div class="card">
+
+                <div class="document-toolbar">
+
+                    <div>
+                        <h2>Knowledge Base</h2>
+                        <p id="documentCountText">
+                            3 documents indexed
+                        </p>
+                    </div>
+
+                    <input
+                        type="text"
+                        id="documentSearch"
+                        class="search-input"
+                        placeholder="Search documents..."
+                    >
+
+                </div>
+
+
+                <div
+                    class="full-document-list"
+                    id="documentList"
+                >
+
+                    <div class="large-document-row">
+
+                        <div class="file-icon pdf">PDF</div>
+
+                        <div class="document-info">
+                            <strong>Operating Systems Notes</strong>
+                            <span>
+                                12 pages • 2.4 MB • Indexed successfully
+                            </span>
+                        </div>
+
+                        <span class="document-status">
+                            Ready
+                        </span>
+
+                    </div>
+
+
+                    <div class="large-document-row">
+
+                        <div class="file-icon txt">TXT</div>
+
+                        <div class="document-info">
+                            <strong>DBMS Revision</strong>
+                            <span>
+                                8 pages • 1.2 MB • Indexed successfully
+                            </span>
+                        </div>
+
+                        <span class="document-status">
+                            Ready
+                        </span>
+
+                    </div>
+
+
+                    <div class="large-document-row">
+
+                        <div class="file-icon pdf">PDF</div>
+
+                        <div class="document-info">
+                            <strong>Computer Networks</strong>
+                            <span>
+                                18 pages • 3.1 MB • Indexed successfully
+                            </span>
+                        </div>
+
+                        <span class="document-status">
+                            Ready
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= AI CHAT ================= -->
+        <section class="page" id="chat">
+
+            <div class="page-header">
+
+                <div>
+                    <p class="eyebrow">AI ASSISTANT</p>
+                    <h1>Ask StudyMind</h1>
+                    <p class="subtitle">
+                        Get answers grounded in your uploaded documents.
+                    </p>
+                </div>
+
+                <span class="status-badge">
+                    ● Grounded Mode
+                </span>
+
+            </div>
+
+
+            <div class="chat-layout">
+
+                <!-- Chat -->
+                <div class="card chat-card">
+
+                    <div
+                        class="chat-messages"
+                        id="chatMessages"
+                    >
+
+                        <div class="message assistant">
+
+                            <div class="message-avatar">
+                                S
+                            </div>
+
+                            <div class="message-content">
+
+                                <span class="message-label">
+                                    StudyMind
+                                </span>
+
+                                <p>
+                                    Hello! I can answer questions based on
+                                    your uploaded documents. Try asking me
+                                    about Operating Systems, DBMS, or
+                                    Computer Networks.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="chat-input-area">
+
+                        <input
+                            type="text"
+                            id="chatInput"
+                            placeholder="Ask a question..."
+                        >
+
+                        <button id="sendChatButton">
+                            Send
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Evidence -->
+                <div class="card evidence-card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <h2>Retrieved Evidence</h2>
+                            <p>Sources used for the answer.</p>
+                        </div>
+
+                    </div>
+
+
+                    <div id="evidenceContainer">
+
+                        <div class="evidence-empty">
+                            <div>◈</div>
+                            <p>
+                                Ask a question to see the relevant
+                                document snippets here.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= QUIZ ================= -->
+        <section class="page" id="quiz">
+
+            <div class="page-header">
+
+                <div>
+                    <p class="eyebrow">ACTIVE RECALL</p>
+                    <h1>Knowledge Quiz</h1>
+                    <p class="subtitle">
+                        Test yourself using questions generated from your study material.
+                    </p>
+                </div>
+
+                <span class="score-badge">
+                    Score: <span id="quizScore">0</span>/4
+                </span>
+
+            </div>
+
+
+            <div class="card quiz-card">
+
+                <div class="quiz-progress">
+                    <div class="progress-track">
+                        <div
+                            class="progress-fill"
+                            id="quizProgress"
+                        ></div>
+                    </div>
+
+                    <span id="questionNumber">
+                        Question 1 of 4
+                    </span>
+                </div>
+
+
+                <div id="quizContainer">
+
+                    <h2 id="quizQuestion">
+                        What is the main purpose of an operating system?
+                    </h2>
+
+
+                    <div
+                        class="quiz-options"
+                        id="quizOptions"
+                    >
+
+                        <button class="quiz-option">
+                            To manage computer resources
+                        </button>
+
+                        <button class="quiz-option">
+                            To create websites
+                        </button>
+
+                        <button class="quiz-option">
+                            To design databases
+                        </button>
+
+                        <button class="quiz-option">
+                            To send emails
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="primary-button"
+                    id="nextQuestionButton"
+                >
+                    Next Question
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= FLASHCARDS ================= -->
+        <section class="page" id="flashcards">
+
+            <div class="page-header">
+
+                <div>
+                    <p class="eyebrow">MEMORY BOOST</p>
+                    <h1>Flashcards</h1>
+                    <p class="subtitle">
+                        Review important concepts from your documents.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="flashcard-wrapper">
+
+                <div
+                    class="flashcard"
+                    id="flashcard"
+                >
+
+                    <div class="flashcard-inner">
+
+                        <div class="flashcard-front">
+
+                            <span>QUESTION</span>
+
+                            <h2>
+                                What is virtual memory?
+                            </h2>
+
+                            <p>
+                                Click the card to reveal the answer.
+                            </p>
+
+                        </div>
+
+
+                        <div class="flashcard-back">
+
+                            <span>ANSWER</span>
+
+                            <h2>
+                                Virtual memory is a memory-management
+                                technique that provides an abstraction
+                                of physical memory.
+                            </h2>
+
+                            <p>
+                                Source: Operating Systems Notes • Page 6
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="flashcard-controls">
+
+                    <button id="previousCard">
+                        ← Previous
+                    </button>
+
+                    <span id="cardNumber">
+                        1 / 5
+                    </span>
+
+                    <button id="nextCard">
+                        Next →
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ANALYTICS ================= -->
+        <section class="page" id="analytics">
+
+            <div class="page-header">
+
+                <div>
+                    <p class="eyebrow">LEARNING INSIGHTS</p>
+                    <h1>Your Progress</h1>
+                    <p class="subtitle">
+                        Understand what you know and what needs revision.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="analytics-grid">
+
+                <div class="card insight-card">
+
+                    <span class="insight-label">
+                        Overall Mastery
+                    </span>
+
+                    <strong class="big-number">
+                        78%
+                    </strong>
+
+                    <div class="progress-track">
+                        <div
+                            class="progress-fill"
+                            style="width:78%"
+                        ></div>
+                    </div>
+
+                    <p>
+                        You're building a strong understanding of your
+                        current study material.
+                    </p>
+
+                </div>
+
+
+                <div class="card insight-card">
+
+                    <span class="insight-label">
+                        Strongest Topic
+                    </span>
+
+                    <strong class="topic">
+                        DBMS
+                    </strong>
+
+                    <p>
+                        Quiz accuracy: 91%
+                    </p>
+
+                    <span class="positive">
+                        ↑ Improving
+                    </span>
+
+                </div>
+
+
+                <div class="card insight-card">
+
+                    <span class="insight-label">
+                        Needs Revision
+                    </span>
+
+                    <strong class="topic">
+                        Computer Networks
+                    </strong>
+
+                    <p>
+                        Quiz accuracy: 64%
+                    </p>
+
+                    <span class="warning">
+                        Review recommended
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h2>Recommended Revision</h2>
+
+                        <p>
+                            Topics you may want to study next.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="revision-list">
+
+                    <div class="revision-item">
+                        <span>01</span>
+
+                        <div>
+                            <strong>Network Layers</strong>
+                            <p>
+                                Review OSI and TCP/IP model concepts.
+                            </p>
+                        </div>
+
+                        <button>
+                            Review
+                        </button>
+                    </div>
+
+
+                    <div class="revision-item">
+                        <span>02</span>
+
+                        <div>
+                            <strong>Process Scheduling</strong>
+                            <p>
+                                Practice CPU scheduling algorithms.
+                            </p>
+                        </div>
+
+                        <button>
+                            Review
+                        </button>
+                    </div>
+
+
+                    <div class="revision-item">
+                        <span>03</span>
+
+                        <div>
+                            <strong>Normalization</strong>
+                            <p>
+                                Revise database normalization forms.
+                            </p>
+                        </div>
+
+                        <button>
+                            Review
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script src="script.js"></script>
+
+</body>
+</html>
